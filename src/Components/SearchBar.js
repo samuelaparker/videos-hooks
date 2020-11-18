@@ -22,6 +22,7 @@ const SearchBar = ({ onFormSubmit }) => {
         </div>
 
     );
+    
 };
 
 export default SearchBar

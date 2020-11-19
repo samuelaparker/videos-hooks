@@ -9,20 +9,19 @@ const App = () => {
     const [selectedVideo, setSelectedVideo] = useState(null);
 
     useEffect(() => {
-        onTermSubmit('motorcycle')
+        onTermSubmit('buildings')
     }, []);
 
-    const onTermSubmit = async term => {
+    const onTermSubmit = async (term) => {
         const response = await youtube.get('/search', {
             params: {
-                q: term
-            }
+                q: term,
+            },
         });
         setVideos(response.data.items)
         setSelectedVideo(response.data.items[0])
     };
-    const onVideoSelect = (video) => {
-        setSelectedVideo(video);
+    
     };
     return (
         <div className="ui container">
@@ -34,7 +33,7 @@ const App = () => {
                     </div>
                     <div className="five wide column">
                         <VideoList
-                            onVideoSelect={onVideoSelect}
+                            onVideoSelect={setSelectedVideo} // = onVideoSelect={(video) => setSelectedVideo(video)}
                             videos={videos}
                         />
                     </div>

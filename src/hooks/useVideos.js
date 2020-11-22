@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import youtube from '../apis/youtube';
 
-
+//custom hook
 const useVideos = (defaultSearchTerm) => {
     const [videos, setVideos] = useState([]);
 
